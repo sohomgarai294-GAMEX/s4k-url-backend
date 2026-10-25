@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 .env
+.codespace.env
 s4k_users.db
 cookies.txt
 *.log

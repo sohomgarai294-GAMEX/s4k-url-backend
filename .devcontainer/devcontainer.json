@@ -1,6 +1,9 @@
 {
   "name": "S.4K URL Backend",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" }
+  },
   "postCreateCommand": "sudo apt-get update && sudo apt-get install -y ffmpeg && pip install -r requirements.txt",
   "forwardPorts": [8080],
   "portsAttributes": {

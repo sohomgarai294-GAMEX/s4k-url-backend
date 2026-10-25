@@ -4,16 +4,10 @@
   "features": {
     "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" }
   },
-  "postCreateCommand": "sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && python3 -m pip install -q -r requirements.txt",
-  "postStartCommand": "nohup bash start.sh > /tmp/s4k-api.log 2>&1 &",
+  "postCreateCommand": "sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg openssh-client && python3 -m pip install -q -r requirements.txt",
+  "postStartCommand": "nohup bash tunnel.sh > /tmp/s4k-boot.log 2>&1 &",
   "forwardPorts": [8080],
   "portsAttributes": {
-    "8080": {
-      "label": "S.4K API",
-      "visibility": "public",
-      "onAutoForward": "silent",
-      "protocol": "http"
-    }
-  },
-  "otherPortsAttributes": { "onAutoForward": "ignore" }
+    "8080": { "label": "S.4K API", "visibility": "public", "onAutoForward": "silent" }
+  }
 }
